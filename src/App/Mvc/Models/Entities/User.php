@@ -5,7 +5,7 @@ namespace App\Mvc\Models\Entities;
 use WebDevBr\Mvc\Models\Entity;
 
 /**
- * @Entity @Table(name="usuarios")
+ * @Entity @Table(name="users")
  **/
 class User extends Entity
 {
