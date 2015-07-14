@@ -10,6 +10,7 @@ $app->config([
     'view' => new WebDevBr\Mvc\View\Json()
 ]);
 
+$app->response->headers->set('Access-Control-Allow-Origin', '*');
 $app->response->headers->set('Content-Type', 'application/json');
 
 $app->error(function () use ($app) {
@@ -51,6 +52,11 @@ $app->map('/:controller/:id', function ($controller, $id) use ($app, $loader) {
 $app->delete('/:controller/:id', function ($controller, $id) use ($app, $loader) {
     $app->render(null, [$loader->getController($app, $controller, 'delete', $id)]);
 })->conditions($routes_controller);
+
+$app->options('/:url+', function ($url) use ($app) {
+    $app->status('200');
+    $app->response->headers->set('Allow', 'GET,PUT,POST,DELETE,OPTIONS');
+});
 
 /**
  * Métodos personalizados nos controllers
