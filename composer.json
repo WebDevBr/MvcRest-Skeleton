@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "webdevbr/mvc-rest": "1.0.*"
+        "webdevbr/mvc-rest": "1.*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "2.*"
